@@ -1,6 +1,7 @@
 # idea files #
 out/
 *.iws
+.idea
 
 # other files #
 build
