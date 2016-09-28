@@ -1,3 +1,10 @@
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testCompile group: 'junit', name: 'junit', version: '4.+'
+}
 task wrapper(type: Wrapper) {
     gradleVersion = '3.1'
 }
