@@ -1,6 +1,7 @@
 package com.sandbox.functional;
 
 
+import com.google.common.base.MoreObjects;
 
 /**
  * TODO: JAVADOC ME
@@ -8,15 +9,23 @@ package com.sandbox.functional;
  * @author {@link "mark.valdez@amd.com"}
  */
 public class Foo {
-   final String value;
-   final Integer integer;
+   final private String value;
+   final private Integer integer;
 
    public Foo(String value, Integer integer) {
       this.value = value;
       this.integer = integer;
    }
 
-   @Override
+    public String getValue() {
+        return value;
+    }
+
+    public Integer getInteger() {
+        return integer;
+    }
+
+    @Override
    public boolean equals(Object o) {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
@@ -34,4 +43,12 @@ public class Foo {
       result = 31 * result + integer.hashCode();
       return result;
    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("value", value)
+                .add("integer", integer)
+                .toString();
+    }
 }
