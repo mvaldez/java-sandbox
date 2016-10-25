@@ -1,11 +1,11 @@
 package com.sandbox.functional;
 
+import static java.util.Comparator.comparing;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static java.util.Comparator.comparing;
 
 public class TransDriver {
     public static void main(String[] args) {
@@ -22,6 +22,18 @@ public class TransDriver {
                 new Transaction(mario, 2012, 710),
                 new Transaction(mario, 2012, 700),
                 new Transaction(alan, 2012, 950));
+
+        // using reduce to accumulate a total sum
+        int total = transactions.stream()
+           .map(Transaction::getValue)
+           .reduce(0, (a, b) -> a + b);
+        System.out.println("sum1 = " + total);
+
+        total = transactions.stream()
+           .map(Transaction::getValue)
+           .reduce(total, (a, b) -> a + b);
+        System.out.println("sum2 = " + total);
+
 
         // sorted by value small to large; only transactions in 2011
         List<Transaction> byYear = transactions.stream()
