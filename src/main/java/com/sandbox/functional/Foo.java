@@ -3,11 +3,6 @@ package com.sandbox.functional;
 
 import com.google.common.base.MoreObjects;
 
-/**
- * TODO: JAVADOC ME
- *
- * @author {@link "mark.valdez@amd.com"}
- */
 public class Foo {
    final private String value;
    final private Integer integer;
