@@ -14,12 +14,7 @@ public class TestExecutor {
         System.out.println("Entering main");
 
         // anon class version
-        final ThreadFactory threadFactory = new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                return  new Thread(r);
-            }
-        };
+        final ThreadFactory threadFactory = r -> new Thread(r);
 
         int POOL_SIZE = 2;
         final Executor executor = Executors.newFixedThreadPool(POOL_SIZE, threadFactory);
